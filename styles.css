@@ -1,0 +1,76 @@
+/* 
+	Dark Green	#023020	rgb(2, 48, 32)
+    buttton hover orange #FF5733  255, 87, 51 
+    FEATURE:    light green     #DAF7A6  218, 247, 166  
+    BUG:        gold            #FFC300  255, 195, 0 
+    CHORE:      RED             #C70039  199, 0, 57
+    container-fluid             #ece9d6
+*/
+
+:root {
+  --div-background-color: #ece9d6;
+  --col-background-color: #023020;
+  --card-background-color: white;
+  --card-background-hover-color: pink;
+  --button-background-color: #ff5733;
+  --button-background-hover-color: lightgreen;
+  --text-color-white: white;
+  --text-color-black: black;
+  --border-radius: 5px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0px;
+}
+
+.container-fluid {
+  background: var(--div-background-color);
+}
+
+.row {
+  padding: 20px;
+}
+
+.col-2 {
+  background: var(--col-background-color);
+  color: var(--text-color-white);
+  border-radius: var(--border-radius);
+  padding: 10px;
+  margin: 5px;
+  height: 90vh;
+  width: 250px !important;
+  box-shadow: 1px 1px 10px 0px grey;
+}
+
+.card {
+  margin-bottom: 5px;
+  border-radius: var(--border-radius);
+  padding: 0px !important;
+  background: var(--card-background-color) !important;
+  color: var(--text-color-black);
+  width: 225px !important;
+}
+
+.column-heading {
+  text-align: center;
+}
+
+.btn-create-ticket-button {
+  background: var(--button-background-color) !important;
+  color: var(--text-color-white) !important;
+}
+
+.btn-create-ticket-button:hover {
+  background: var(--button-background-hover-color) !important;
+  color: var(--text-color-white) !important;
+}
+
+.card:hover {
+  background: var(--card-background-hover-color) !important;
+}
+
+.card-div-link {
+  text-decoration: none !important;
+}
