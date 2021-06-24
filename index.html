@@ -37,14 +37,23 @@
  
     <button type="button" class="btn btn-create-ticket-button">Create Ticket</button>
 
-    <div id="overlay"></div>
-    <div id="modal">
-        <h3>This is a modal</h3>
-        <button id="close-modal-btn">Close Modal</button>
-    </div>
+
 
     <div class="container-fluid">
         <div class="row">
+            <div class="col-2">
+                <h4 class='column-heading'>unscheduled</h4>
+                <a class="card-div-link" href="#">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-2">ready for development</div>
+
             <div class="col-2">
                 <h4 class='column-heading'>unscheduled</h4>
                 <a class="card-div-link" href="#">
@@ -60,6 +69,12 @@
             <div class="col-2">ready for review</div>
             <div class="col-2">ready for deploy</div>
             <div class="col-2">completed</div>
+
+            <div id="overlay"></div>
+            <div id="modal">
+                <h3>This is a modal</h3>
+                <button id="close-modal-btn">Close Modal</button>
+            </div>
         </div>
     </div>
 
