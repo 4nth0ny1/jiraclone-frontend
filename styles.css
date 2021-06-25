@@ -102,3 +102,12 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
 }
+
+.radio-container {
+  display: flex;
+  
+}
+
+.form-check {
+  margin-right: 25px;
+}
