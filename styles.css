@@ -1,18 +1,9 @@
-/* 
-	Dark Green	#023020	rgb(2, 48, 32)
-    buttton hover orange #FF5733  255, 87, 51 
-    FEATURE:    light green     #DAF7A6  218, 247, 166  
-    BUG:        gold            #FFC300  255, 195, 0 
-    CHORE:      RED             #C70039  199, 0, 57
-    container-fluid             #ece9d6
-*/
-
 :root {
-  --div-background-color: #ece9d6;
-  --col-background-color: #023020;
-  --card-background-color: white;
+  --div-background-color: rgb(31, 22, 22);
+  --col-background-color: #1f2224;
+  --card-background-color: rgb(106, 19, 128);
   --card-background-hover-color: pink;
-  --button-background-color: #ff5733;
+  --button-background-color: rgb(106, 19, 128);
   --button-background-hover-color: lightgreen;
   --text-color-white: white;
   --text-color-black: black;
@@ -23,6 +14,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0px;
+}
+
+body {
+  background: var(--div-background-color) !important;
 }
 
 .container-fluid {
@@ -38,10 +33,11 @@
   color: var(--text-color-white);
   border-radius: var(--border-radius);
   padding: 10px;
-  margin: 5px;
+  margin: 10px;
+  margin-bottom: 20px;
   height: 50vh;
   width: 200px !important;
-  box-shadow: 1px 1px 10px 0px grey;
+  box-shadow: 1px 1px 1px 0px rgb(106, 19, 128);
   position: relative;
 }
 
@@ -55,9 +51,22 @@
   width: 100% !important;
 }
 
+.card-feature {
+  background: green !important;
+}
+
+.card-bug {
+  background: red !important;
+}
+
+.card-chore {
+  background: yellow !important;
+}
+
 .column-heading {
   border-bottom: 1px solid white;
-  padding: 10px 0 20px 0;
+  padding: 10px 0 20px 0 !important;
+
   margin-bottom: 20px;
   text-align: center;
 }
@@ -92,7 +101,6 @@
   padding: 1rem;
   border-radius: 0.25rem;
   background-color: white;
-
 }
 
 #overlay {
@@ -107,7 +115,6 @@
 
 .radio-container {
   display: flex;
-  
 }
 
 .form-check {
