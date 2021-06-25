@@ -33,7 +33,7 @@
         - modals for comments
     -->
  
-    <button type="button" class="btn btn-create-ticket-button">Create Ticket</button>
+    <button type="button" id="create-ticket" class="btn btn-create-ticket-button">Create Ticket</button>
 
     <div class="container-fluid">
         <div class="row">
@@ -128,9 +128,19 @@
             </select>
             
             <br>
-            <button class="btn btn-create-ticket-button">Edit Ticket</button>
-            <button class="btn btn-create-ticket-button">Delete Ticket</button>
-            <button class="btn btn-create-ticket-button" id="close-modal-btn">Close</button>
+            <div class="modal-buttons">
+                <button class="btn btn-create-ticket-button">Edit Ticket</button>
+                <button class="btn btn-create-ticket-button">Delete Ticket</button>
+                <button class="btn btn-create-ticket-button" id="close-modal-btn">Close</button>
+            </div>
+            <br> 
+            <div class="form-group">
+                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Add comment" rows="5"></textarea>
+            </div>
+            <br>
+            <div class="modal-buttons">
+                <button class="btn btn-create-ticket-button" id="close-modal-btn">Add Comment</button>
+            </div>
         
     </div>
 

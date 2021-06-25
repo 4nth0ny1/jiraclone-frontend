@@ -2,6 +2,7 @@ const modal = document.querySelector('#modal')
 const card = document.querySelectorAll('.card-body')
 const closeModalBtn = document.querySelector('#close-modal-btn')
 const overlay = document.querySelector('#overlay')
+const createTicket = document.querySelector('#create-ticket')
 
 const cardArray = Array.from(card)
 
@@ -10,6 +11,11 @@ cardArray.forEach(card =>
         modal.classList.add('open')
         overlay.classList.add('open')
 }))
+
+createTicket.addEventListener('click', () => {
+    modal.classList.add('open')
+    overlay.classList.add('open')
+})
 
 closeModalBtn.addEventListener('click', closeModal)
 

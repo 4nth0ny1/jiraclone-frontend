@@ -111,3 +111,11 @@
 .form-check {
   margin-right: 25px;
 }
+
+.form-select {
+  width: 50% !important;
+}
+
+.modal-buttons {
+  text-align: end;
+}
