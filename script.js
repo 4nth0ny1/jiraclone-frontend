@@ -25,3 +25,30 @@ function closeModal() {
     modal.classList.remove('open')
     overlay.classList.remove('open')
 }
+
+// =========================================== card color changes based on ticket type
+const radioContainer = document.querySelector('.radio-container')
+const formChecks = document.querySelectorAll('.form-check')
+const formCheckInputs = Array.from(document.querySelectorAll('.form-check-input'))
+
+
+console.log(checkedRadio)
+
+radioContainer.addEventListener('click', e => {
+    e.preventDefault()
+
+    const checkedRadio = formCheckInputs.filter(radio => console.log(radio.checked))
+
+    checkedRadio.forEach(formCheckInput => {
+
+        const isChecked = formCheckInput.value === 'true' 
+
+        const formCheck = formCheckInput.closest('.form-check')
+        if (isChecked){
+            formCheck.classList.add('.card-feature')
+        }
+ 
+    })
+
+})
+
