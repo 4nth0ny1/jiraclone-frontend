@@ -1,9 +1,9 @@
 :root {
-  --div-background-color: rgb(39, 26, 46);
-  --col-background-color: #364147;
-  --card-background-color: rgb(106, 19, 128);
+  --div-background-color: rgba(46, 45, 45, 0.952);
+  --col-background-color: #202022;
+  --card-background-color: rgb(38, 25, 216);
   --card-background-hover-color: pink;
-  --button-background-color: rgb(106, 19, 128);
+  --button-background-color: rgb(38, 25, 216);
   --button-background-hover-color: lightgreen;
   --text-color-white: white;
   --text-color-black: black;
@@ -14,14 +14,26 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0px;
+
 }
 
 body {
+  background: white;
+  
+}
+
+.app-container {
+  padding: 0 0 0 250px;
+  margin: 25px;
+  border: 5px solid pink;
+  border-radius: 5px;
   background: var(--div-background-color) !important;
 }
 
 .container-fluid {
   background: var(--div-background-color);
+  height: 85vh;
+  padding: 30px;
 }
 
 .row {
@@ -37,7 +49,7 @@ body {
   margin-bottom: 20px;
   height: 50vh;
   width: 200px !important;
-  box-shadow: 1px 1px 1px 0px rgb(106, 19, 128);
+  box-shadow: 1px 1px 1px 0px rgb(38, 25, 216);
   position: relative;
 }
 

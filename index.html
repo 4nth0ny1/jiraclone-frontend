@@ -32,169 +32,171 @@
         - modals for filling out the cards 
         - modals for comments
     -->
+    <div class="app-container">
  
-    <button type="button" id="create-ticket" class="btn btn-create-ticket-button">Create Ticket</button>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-2">
-                <h4 class='column-heading'>Unscheduled</h4>
-                <a class="card-div-link" href="#">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
+        <div class="container-fluid">
+            <button type="button" id="create-ticket" class="btn btn-create-ticket-button">Create Ticket</button>
 
-            <div class="col-2">
-                <h4 class='column-heading'>Ready For Development</h4>
-                <a class="card-div-link" href="#">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+            <div class="row">
+                <div class="col-2">
+                    <h4 class='column-heading'>Unscheduled</h4>
+                    <a class="card-div-link" href="#">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
 
-            <div class="col-2">
-                <h4 class='column-heading'>In Development</h4>
-                <a class="card-div-link" href="#">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                <div class="col-2">
+                    <h4 class='column-heading'>Ready For Development</h4>
+                    <a class="card-div-link" href="#">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
 
-            <div class="col-2">
-                <h4 class='column-heading'>Ready For Review</h4>
-                <a class="card-div-link" href="#">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                <div class="col-2">
+                    <h4 class='column-heading'>In Development</h4>
+                    <a class="card-div-link" href="#">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
 
-            <div class="col-2">
-                <h4 class='column-heading'>Ready For Deployment</h4>
-                <a class="card-div-link" href="#">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                <div class="col-2">
+                    <h4 class='column-heading'>Ready For Review</h4>
+                    <a class="card-div-link" href="#">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
 
- 
-            <div class="col-2">
-                <h4 class='column-heading'>Completed</h4>
-                <a class="card-div-link" href="#">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                <div class="col-2">
+                    <h4 class='column-heading'>Ready For Deployment</h4>
+                    <a class="card-div-link" href="#">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+
+    
+                <div class="col-2">
+                    <h4 class='column-heading'>Completed</h4>
+                    <a class="card-div-link" href="#">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
+
+        <div id="overlay"></div>
+
+        <div id="modal">
+        
+                <h2>Dynamic Title</h2>
+            
+
+                <div class="form-group">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Description" rows="5"></textarea>
+                </div>
+            
+                <br>
+
+                <h5>Status</h5>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">Unscheduled</option>
+                    <option value="2">Ready for Development</option>
+                    <option value="3">In Development</option>
+                    <option value="3">Ready for Review</option>
+                    <option value="3">Ready for Deployment</option>
+                    <option value="3">Completed</option>
+                </select>
+
+                <br>
+                
+                <h5>Ticket Type</h5>
+                <!---i removed the disabled and checked disabled command at the end of the input line. it goes after the id of each form-check 
+                https://getbootstrap.com/docs/4.0/components/forms/
+                -->
+                <div class="radio-container">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" >
+                        <label class="form-check-label" for="flexRadioDisabled">
+                        Feature
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioCheckedDisabled">
+                        <label class="form-check-label" for="flexRadioCheckedDisabled">
+                        Bug
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioCheckedDisabled">
+                        <label class="form-check-label" for="flexRadioCheckedDisabled">
+                        Chore
+                        </label>
+                    </div>
+                </div>
+                
+                <br>
+                
+                <h5>Effort</h5>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="3">5</option>
+                    <option value="3">8</option>
+                    <option value="3">13</option>
+                </select>
+                
+                <br>
+                <div class="modal-buttons">
+                    <button class="btn btn-create-ticket-button">Edit Ticket</button>
+                    <button class="btn btn-create-ticket-button">Delete Ticket</button>
+                    <button class="btn btn-create-ticket-button" id="close-modal-btn">Close</button>
+                </div>
+                <br> 
+                <div class="form-group">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Add comment" rows="5"></textarea>
+                </div>
+                <br>
+                <div class="modal-buttons">
+                    <button class="btn btn-create-ticket-button" id="close-modal-btn">Add Comment</button>
+                </div>
+            
+        </div>
+
+        <!--
+            - columns, six columns: unscheduled, ready for development, in development, ready for review, ready for deploy, completed
+            - then we will dynamically add the cards to the page 
+            - add navbar decorative addd jira logo 
+            - add footer decorative 
+        -->
+
     </div>
-
-    <div id="overlay"></div>
-
-    <div id="modal">
-       
-            <h2>Dynamic Title</h2>
-        
-
-            <div class="form-group">
-                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Description" rows="5"></textarea>
-            </div>
-        
-            <br>
-
-            <h5>Status</h5>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">Unscheduled</option>
-                <option value="2">Ready for Development</option>
-                <option value="3">In Development</option>
-                <option value="3">Ready for Review</option>
-                <option value="3">Ready for Deployment</option>
-                <option value="3">Completed</option>
-            </select>
-
-            <br>
-            
-            <h5>Ticket Type</h5>
-            <!---i removed the disabled and checked disabled command at the end of the input line. it goes after the id of each form-check 
-            https://getbootstrap.com/docs/4.0/components/forms/
-            -->
-            <div class="radio-container">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" >
-                    <label class="form-check-label" for="flexRadioDisabled">
-                    Feature
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioCheckedDisabled">
-                    <label class="form-check-label" for="flexRadioCheckedDisabled">
-                    Bug
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioCheckedDisabled">
-                    <label class="form-check-label" for="flexRadioCheckedDisabled">
-                    Chore
-                    </label>
-                </div>
-            </div>
-            
-            <br>
-            
-            <h5>Effort</h5>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="3">5</option>
-                <option value="3">8</option>
-                <option value="3">13</option>
-            </select>
-            
-            <br>
-            <div class="modal-buttons">
-                <button class="btn btn-create-ticket-button">Edit Ticket</button>
-                <button class="btn btn-create-ticket-button">Delete Ticket</button>
-                <button class="btn btn-create-ticket-button" id="close-modal-btn">Close</button>
-            </div>
-            <br> 
-            <div class="form-group">
-                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Add comment" rows="5"></textarea>
-            </div>
-            <br>
-            <div class="modal-buttons">
-                <button class="btn btn-create-ticket-button" id="close-modal-btn">Add Comment</button>
-            </div>
-        
-    </div>
-
-    <!--
-        - columns, six columns: unscheduled, ready for development, in development, ready for review, ready for deploy, completed
-        - then we will dynamically add the cards to the page 
-        - add navbar decorative addd jira logo 
-        - add footer decorative 
-    -->
-
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
