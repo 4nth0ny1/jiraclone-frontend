@@ -7,7 +7,12 @@ class TicketApi {
             const ticket = new Ticket(ticketJson)
             ticket.render()
         }))
+        .then(_ => {
+            initializeDrag()
+        })
     }
+
+
 
 
 }

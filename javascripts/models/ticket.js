@@ -31,6 +31,15 @@ class Ticket {
         const statusClass = this.status.toLowerCase().split(' ').join('-')
         const statusContainer = document.querySelector(`.${statusClass}`)
         statusContainer.append(ticketContainer)
+        const cardBody = ticketContainer.querySelector('.card-body')
+        cardBody.addEventListener('click', () => {
+            modal.classList.add('open')
+            overlay.classList.add('open')
+        })
+
+        overlay.addEventListener('click', closeModal)
+        closeModalBtn.addEventListener('click', closeModal)
+
     }
 
 
