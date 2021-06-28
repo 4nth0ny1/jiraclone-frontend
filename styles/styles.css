@@ -72,6 +72,16 @@ body {
   position: relative;
 }
 
+
+
+.draggable {
+  cursor: move;
+}
+
+.draggable.dragging {
+  opacity: .5;
+}
+
 .card {
   position: absolute;
   margin-bottom: 5px;
@@ -158,4 +168,9 @@ body {
 
 .modal-buttons {
   text-align: end;
+}
+
+.fa-bars {
+  color: white;
+  font-size: 30px;
 }
