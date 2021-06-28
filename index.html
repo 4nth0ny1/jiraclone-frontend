@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="./javascripts/script.js" defer></script>
+    <script src="./javascripts/index.js" defer></script>
     <script src="./javascripts/models/ticket.js" defer></script>
     <script src="./javascripts/models/comment.js" defer></script>
     <script src="./javascripts/services/ticketApi.js" defer></script>
@@ -57,84 +58,30 @@
 
             <i class="fas fa-bars"></i>
 
-            <div class="row">
-                <div class="col-2">
+            <div class="row ticket-container">
+                <div class="col-2 ticket-status-column unscheduled">
                     <h4 class='column-heading'>Unscheduled</h4>
-                    <div class="draggable" draggable="true">
-                        <a class="card-div-link" href="#">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div>  
                 </div>
 
-                <div class="col-2">
+                <div class="col-2 ticket-status-column ready-for-development">
                     <h4 class='column-heading'>Ready For Development</h4>
-                    <div class="draggable" draggable="true">
-                        <a class="card-div-link" href="#">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div> 
                 </div>
 
-                <div class="col-2">
+                <div class="col-2 ticket-status-column in-development">
                     <h4 class='column-heading'>In Development</h4>
-                    <div class="draggable" draggable="true">
-                        <a class="card-div-link" href="#">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div> 
                 </div>
 
-                <div class="col-2">
+                <div class="col-2 ticket-status-column ready-for-review">
                     <h4 class='column-heading'>Ready For Review</h4>
-                    <div class="draggable" draggable="true">
-                        <a class="card-div-link" href="#">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div> 
                 </div>
 
-                <div class="col-2">
+                <div class="col-2 ticket-status-column ready-for-deployment">
                     <h4 class='column-heading'>Ready For Deployment</h4>
-                    <div class="draggable" draggable="true">
-                        <a class="card-div-link" href="#">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div> 
                 </div>
 
     
-                <div class="col-2">
+                <div class="col-2 ticket-status-column completed">
                     <h4 class='column-heading'>Completed</h4>
-                    <div class="draggable" draggable="true">
-                        <a class="card-div-link" href="#">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div> 
                 </div>
             </div>
         </div>
