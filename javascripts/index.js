@@ -37,9 +37,9 @@ function initializeDrag(){
           } else {
             container.insertBefore(draggable, afterElement)
           }
+          alterCardStatusOnDrag()
         })
       })
-    
 }
 
   function getDragAfterElement(container, y) {
@@ -55,3 +55,12 @@ function initializeDrag(){
       }
     }, { offset: Number.NEGATIVE_INFINITY }).element
   }
+
+  function formatToClass(str){
+    return str.toLowerCase().split(' ').join('-')
+  }
+
+  function closeModal() {
+    modal.classList.remove('open')
+    overlay.classList.remove('open')
+}

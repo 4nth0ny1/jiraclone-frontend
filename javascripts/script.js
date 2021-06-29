@@ -12,19 +12,19 @@
     //     overlay.classList.add('open')
 // }))
 
-createTicket.addEventListener('click', () => {
-    modal.classList.add('open')
-    overlay.classList.add('open')
-})
+// createTicket.addEventListener('click', () => {
+//     modal.classList.add('open')
+//     overlay.classList.add('open')
+// })
 
 // closeModalBtn.addEventListener('click', closeModal)
 
 // overlay.addEventListener('click', closeModal)
 
-function closeModal() {
-    modal.classList.remove('open')
-    overlay.classList.remove('open')
-}
+// function closeModal() {
+//     modal.classList.remove('open')
+//     overlay.classList.remove('open')
+// }
 
 // =========================================== card color changes based on ticket type
 // const radioContainer = document.querySelector('.radio-container')

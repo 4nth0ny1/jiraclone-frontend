@@ -1,3 +1,5 @@
+const ticketContainer = document.createElement('div')
+
 class Ticket {
 
     static all = []
@@ -16,19 +18,20 @@ class Ticket {
         const ticketContainer = document.createElement('div')
         ticketContainer.classList.add('draggable')
         ticketContainer.setAttribute('draggable', 'true')
-        ticketContainer.innerHTML = `
-
+        ticketContainer.dataset.status = `${this.status}`
+        ticketContainer.innerHTML = 
+        
+        `
             <a class="card-div-link" href="#">
-                <div class="card" style="width: 18rem;">
+                <div class="card card-${formatToClass(this.ticket_type)}" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">${this.title}</h5>
                     </div>
                 </div>
             </a>
-
         `
 
-        const statusClass = this.status.toLowerCase().split(' ').join('-')
+        const statusClass = formatToClass(this.status)
         const statusContainer = document.querySelector(`.${statusClass}`)
         statusContainer.append(ticketContainer)
         const cardBody = ticketContainer.querySelector('.card-body')
@@ -41,6 +44,7 @@ class Ticket {
         closeModalBtn.addEventListener('click', closeModal)
 
     }
+
 
 
 
