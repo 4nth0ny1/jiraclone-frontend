@@ -13,42 +13,74 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0px;
-
+  padding: 0;
 }
 
 body {
-  background: white;
+  background: #150019 !important;
+  min-height: 100vh;
 }
 
-.app-container {
-  margin: 25px;
-  border: 5px solid rgb(38, 25, 216);
-  border-radius: 5px;
-  background: var(--div-background-color) !important;
+.navigation {
+  position: fixed;
+  width: 60px;
+  height: 100%;
+  background: #3e0748;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.navigation:hover {
+  width: 300px;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+}
+
+.navigation ul li:hover {
+  background: #ea1d63;
+}
+
+.navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
   display: flex;
+  text-decoration: none;
+  color: #fff;
 }
 
-.sidebar {
-  width: 12%;
-  color: white;
-  padding: 85px 25px;
-
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
 }
 
-.sidebar-item {
-  padding: 10px;
-  border-bottom: 1px solid grey;
+.navigation ul li a .icon .fa {
+  font-size: 24px;
 }
 
-.sidebar-item:hover {
-  color: orange;
-}
-
-.container-fluid {
-  background: var(--div-background-color);
-  height: 93vh;
-  padding: 30px;
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
 }
 
 .fa-align-left {
@@ -56,7 +88,7 @@ body {
 }
 
 .row {
-  padding: 20px;
+  background: #150019;
 }
 
 .col-2 {
@@ -64,10 +96,9 @@ body {
   color: var(--text-color-white);
   border-radius: var(--border-radius);
   padding: 10px;
-  margin: 10px;
-  margin-bottom: 20px;
-  height: 50vh;
-  width: 200px !important;
+  margin: 10px 10px 20px 300px;
+  height: 30vh;
+  width: 150px !important;
   box-shadow: 1px 1px 1px 0px rgb(38, 25, 216);
   position: relative;
 }
@@ -77,7 +108,7 @@ body {
 }
 
 .draggable.dragging {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .card {
@@ -103,7 +134,6 @@ body {
 }
 
 .column-heading {
-  border-bottom: 1px solid white;
   padding: 10px 0 20px 0 !important;
   height: 20%;
   margin-bottom: 20px;
@@ -168,7 +198,15 @@ body {
   text-align: end;
 }
 
-.fa-bars {
-  color: white;
-  font-size: 30px;
+#modal.open {
+  display: block;
+}
+
+#overlay.open {
+  display: block;
+}
+
+ol,
+ul {
+  padding-left: 1.25rem !important;
 }
