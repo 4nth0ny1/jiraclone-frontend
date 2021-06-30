@@ -17,6 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
       ticketStatusContainer.style.marginLeft = '100px'
     })
 
+    createTicket.addEventListener('click', () => {
+      modal.classList.add('open')
+      overlay.classList.add('open')
+      overlay.addEventListener('click', closeModal)
+      Ticket.addNewTicketForm()
+    })
+
 })
 
 
