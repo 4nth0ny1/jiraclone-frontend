@@ -68,15 +68,15 @@ function initializeDrag(){
     overlay.classList.remove('open')
 }
 
-alterCardStatusOnDrag() {
-  const draggables = document.querySelectorAll('.draggable')
-    draggables.forEach(draggable => {
-      const parentOfDraggable = draggable.parentElement
-      if (parentOfDraggable.dataset.status === draggable.dataset.status) {
-          console.log('yes')
-      } else {
-          console.log('no')
-      }
-    })
-}
+// alterCardStatusOnDrag() {
+//   const draggables = document.querySelectorAll('.draggable')
+//     draggables.forEach(draggable => {
+//       const parentOfDraggable = draggable.parentElement
+//       if (parentOfDraggable.dataset.status === draggable.dataset.status) {
+//           console.log('yes')
+//       } else {
+//           console.log('no')
+//       }
+//     })
+// }
 
