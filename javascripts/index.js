@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
+
+
+
 function initializeDrag(){
     const draggables = document.querySelectorAll('.draggable')
     const containers = document.querySelectorAll('.ticket-status-column')
@@ -64,3 +67,16 @@ function initializeDrag(){
     modal.classList.remove('open')
     overlay.classList.remove('open')
 }
+
+alterCardStatusOnDrag() {
+  const draggables = document.querySelectorAll('.draggable')
+    draggables.forEach(draggable => {
+      const parentOfDraggable = draggable.parentElement
+      if (parentOfDraggable.dataset.status === draggable.dataset.status) {
+          console.log('yes')
+      } else {
+          console.log('no')
+      }
+    })
+}
+
