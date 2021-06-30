@@ -19,6 +19,7 @@ class Ticket {
         ticketContainer.classList.add('draggable')
         ticketContainer.setAttribute('draggable', 'true')
         ticketContainer.dataset.status = `${this.status}`
+        ticketContainer.dataset.id = `${this.id}` //using this to send information back to rails
         ticketContainer.innerHTML = 
         
         `

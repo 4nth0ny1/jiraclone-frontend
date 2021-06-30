@@ -17,9 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
       ticketStatusContainer.style.marginLeft = '100px'
     })
 
-
-
-
 })
 
 
@@ -34,9 +31,11 @@ function initializeDrag(){
       draggable.addEventListener('dragstart', () => {
         draggable.classList.add('dragging')
       })
-    
-      draggable.addEventListener('dragend', () => {
+      draggable.addEventListener('dragend', (e) => {
         draggable.classList.remove('dragging')
+        const ticketId = e.target.dataset.id 
+        const ticketStatus = e.target.closest(".ticket-status-column").dataset.status
+        TicketApi.updateStatus(ticketId, ticketStatus)
       })
     })
     
@@ -50,7 +49,6 @@ function initializeDrag(){
           } else {
             container.insertBefore(draggable, afterElement)
           }
-          alterCardStatusOnDrag()
         })
       })
 }
@@ -76,19 +74,19 @@ function initializeDrag(){
   function closeModal() {
     modal.classList.remove('open')
     overlay.classList.remove('open')
-}
+  }
 
-// alterCardStatusOnDrag() {
-//   const draggables = document.querySelectorAll('.draggable')
-//     draggables.forEach(draggable => {
-//       const parentOfDraggable = draggable.parentElement
-//       if (parentOfDraggable.dataset.status === draggable.dataset.status) {
-//           console.log('yes')
-//       } else {
-//           console.log('no')
-//       }
-//     })
-// }
+  // function alterCardStatusOnDrag() {
+  //   const draggables = document.querySelectorAll('.draggable')
+  //     draggables.forEach(draggable => {
+  //       const parentOfDraggable = draggable.parentElement
+  //       if (parentOfDraggable.dataset.status === draggable.dataset.status) {
+  //           console.log('yes')
+  //       } else {
+  //           console.log('no')
+  //       }
+  //     })
+  // }
 
 
 
