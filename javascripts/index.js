@@ -2,10 +2,20 @@ const modal = document.querySelector('#modal')
 const closeModalBtn = document.querySelector('#close-modal-btn')
 const overlay = document.querySelector('#overlay')
 const createTicket = document.querySelector('#create-ticket')
+const navigation = document.querySelector('.navigation')
+const ticketStatusContainer = document.querySelector('#ticket-container')
     
 document.addEventListener('DOMContentLoaded', () => {
 
     TicketApi.fetchAll()
+
+    navigation.addEventListener('mouseover', () => {
+      ticketStatusContainer.style.marginLeft = '350px'
+    })
+
+    navigation.addEventListener('mouseout', () => {
+      ticketStatusContainer.style.marginLeft = '100px'
+    })
 
 
 
@@ -79,4 +89,6 @@ function initializeDrag(){
 //       }
 //     })
 // }
+
+
 

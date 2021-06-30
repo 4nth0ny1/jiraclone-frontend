@@ -1,6 +1,6 @@
 :root {
   --div-background-color: rgba(46, 45, 45, 0.952);
-  --col-background-color: #202022;
+  --col-background-color: #3e0748;
   --card-background-color: rgb(38, 25, 216);
   --card-background-hover-color: #ea1d63;
   --button-background-color: rgb(38, 25, 216);
@@ -87,10 +87,16 @@ body {
   color: white;
 }
 
-.row {
+.container {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#ticket-container {
   background: #150019;
   flex-wrap: nowrap !important;
-  margin-left: 100px !important;
+  margin-left: 100px;
+  transition: 0.5s;
 }
 
 .col-2 {
