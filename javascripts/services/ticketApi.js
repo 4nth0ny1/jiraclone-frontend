@@ -33,7 +33,7 @@ class TicketApi {
                 title: e.target.querySelector('#title').value, 
                 description: e.target.querySelector('#description').value, 
                 status: e.target.querySelector('#status').value,
-                ticket_type:  e.target.querySelector('input[name="ticket_type"]').value,
+                ticket_type: e.target.querySelector('input[name="ticket_type"]:checked').value,
                 effort: e.target.querySelector('#effort').value
             }
         }
@@ -52,6 +52,38 @@ class TicketApi {
         })
     }
 
+    static updateTicket(e){
+        const ticketId = e.target.dataset.ticketId
+        const data = {
+            ticket: {
+                title: e.target.querySelector('#title').value, 
+                description: e.target.querySelector('#description').value, 
+                status: e.target.querySelector('#status').value,
+                ticket_type: e.target.querySelector('input[name="ticket_type"]:checked').value,
+                effort: e.target.querySelector('#effort').value
+            }
+        }
+        fetch(`http://127.0.0.1:3000/tickets/${ticketId}`, {
+            headers: {
+                'Content-type': 'application/json', 
+                'Accept': 'application/json'
+            }, 
+            method: 'PATCH', 
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => {
+            const ticket = Ticket.findById(data.id)
+            ticket.refresh(data)
+            document.querySelector(`#ticket-${ticket.id}`).remove()
+            ticket.render()
+            closeModal()
+        })
+
+
+
+
+    }
     
 
    
