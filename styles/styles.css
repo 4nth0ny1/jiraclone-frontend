@@ -108,6 +108,7 @@ body {
   width: 200px !important;
   box-shadow: 1px 1px 1px 0px #3e0748;
   position: relative;
+  overflow-y: auto;
 }
 
 .draggable {
@@ -177,6 +178,7 @@ body {
   padding: 1rem;
   border-radius: 0.25rem;
   background-color: white;
+  overflow-y: auto;
 }
 
 #overlay {

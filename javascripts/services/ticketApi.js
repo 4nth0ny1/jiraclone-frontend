@@ -50,6 +50,7 @@ class TicketApi {
             const ticket = new Ticket(data)
             ticket.render()
         })
+        closeModal()
     }
 
     static updateTicket(e){
@@ -78,10 +79,18 @@ class TicketApi {
             document.querySelector(`#ticket-${ticket.id}`).remove()
             ticket.render()
             closeModal()
+        })  
+    }
+
+    static deleteTicket(e){
+        const ticketId = e.target.dataset.ticketId
+        
+        document.querySelector(`#ticket-${ticketId}`).remove()
+
+        fetch(`http://127.0.0.1:3000/tickets/${ticketId}`, {
+            method: "DELETE"
         })
-
-
-
+        closeModal()
 
     }
     

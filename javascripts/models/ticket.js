@@ -132,8 +132,8 @@ class Ticket {
         `
 
         document.querySelector('#edit-ticket-form').addEventListener('submit', TicketApi.updateTicket)
-        document.querySelector('#delete-modal-btn').addEventListener('submit', TicketApi.deleteTicket)
-
+        document.querySelector('#edit-ticket-form').addEventListener('submit', TicketApi.deleteTicket)
+        
     }
 
     static addNewTicketForm(){
