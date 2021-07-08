@@ -49,7 +49,6 @@ class Ticket {
         overlay.classList.add('open')
         overlay.addEventListener('click', closeModal)
 
-
         // const modal = document.querySelector('#modal')
         const ticketId = e.target.closest('.card').dataset.ticketId
 
@@ -57,84 +56,96 @@ class Ticket {
 
         modal.innerHTML = 
         `
-        <h2>Edit a Ticket</h2>
+        <div class="modal-container">
+            <div class="edit-form-container">
 
-        <form id="edit-ticket-form" data-ticket-id="${ticket.id}">
-            <div class="form-group">
-                <input class="form-control" value="${ticket.title}" id="title" placeholder="Title" rows="5"></input>
-            </div>
+                <h2 class="edit-title">Edit a Ticket</h2>
+                <button class="expand-modal">View Comments</button>
+                <br>
 
-            <br>
+                <form id="edit-ticket-form" data-ticket-id="${ticket.id}">
+                    <div class="form-group">
+                        <input class="form-control" value="${ticket.title}" id="title" placeholder="Title" rows="5"></input>
+                    </div>
+
+                    <br>
+                        
+
+                    <div class="form-group">
+                        <textarea class="form-control" id="description" placeholder="Description" rows="5">${ticket.description}</textarea>
+                    </div>
                 
+                    <br>
 
-            <div class="form-group">
-                <textarea class="form-control" id="description" placeholder="Description" rows="5">${ticket.description}</textarea>
+                    <h5>Status</h5>
+                    <select class="form-select" aria-label="Default select example" id="status">
+                        <option selected>Open this select menu</option>
+                        <option value="unscheduled" ${ticket.status === 'unscheduled' ? 'selected' : ''}>Unscheduled</option>
+                        <option value="ready for development" ${ticket.status === 'ready for development' ? 'selected' : ''}>Ready for Development</option>
+                        <option value="in development" ${ticket.status === 'in development' ? 'selected' : ''}>In Development</option>
+                        <option value="ready for review" ${ticket.status === 'ready for review' ? 'selected' : ''}>Ready for Review</option>
+                        <option value="ready for deployment" ${ticket.status === 'ready for deployment' ? 'selected' : ''}>Ready for Deployment</option>
+                        <option value="completed" ${ticket.status === 'completed' ? 'selected' : ''}>Completed</option>
+                    </select>
+
+                    <br>
+                    
+                    <h5>Ticket Type</h5>
+
+                    <div class="radio-container">
+                        <div class="form-check">
+                            <input class="form-check-input" ${ticket.ticket_type === 'feature' ? 'checked' : ''} value="feature" type="radio" name="ticket_type" id="feature">
+                            <label class="form-check-label" for="feature">
+                            Feature
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" ${ticket.ticket_type === 'bug' ? 'checked' : ''} value="bug" type="radio" name="ticket_type" id="bug">
+                            <label class="form-check-label" for="bug">
+                            Bug
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" ${ticket.ticket_type === 'chore' ? 'checked' : ''} value="chore" type="radio" name="ticket_type" id="chore">
+                            <label class="form-check-label" for="chore">
+                            Chore
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <br>
+                    
+                    <h5>Effort</h5>
+                    <select class="form-select" id="effort" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1" ${ticket.effort === 1 ? 'selected' : ''}>1</option>
+                        <option value="2" ${ticket.effort === 2 ? 'selected' : ''}>2</option>
+                        <option value="3" ${ticket.effort === 3 ? 'selected' : ''}>3</option>
+                        <option value="5" ${ticket.effort === 5 ? 'selected' : ''}>5</option>
+                        <option value="8" ${ticket.effort === 8 ? 'selected' : ''}>8</option>
+                        <option value="13" ${ticket.effort === 13 ? 'selected' : ''}>13</option>
+                    </select>
+                    
+                    <br>
+                    <div class="modal-buttons">
+                        <input type="submit" value="Save" class="btn btn-create-ticket-button" id="close-modal-btn" />
+                        <input type="submit" value="Delete" class="btn btn-create-ticket-button" id="delete-modal-btn" />
+                    </div>
+                </form>
+                
             </div>
-        
-            <br>
+            <div class="comments-container">
 
-            <h5>Status</h5>
-            <select class="form-select" aria-label="Default select example" id="status">
-                <option selected>Open this select menu</option>
-                <option value="unscheduled" ${ticket.status === 'unscheduled' ? 'selected' : ''}>Unscheduled</option>
-                <option value="ready for development" ${ticket.status === 'ready for development' ? 'selected' : ''}>Ready for Development</option>
-                <option value="in development" ${ticket.status === 'in development' ? 'selected' : ''}>In Development</option>
-                <option value="ready for review" ${ticket.status === 'ready for review' ? 'selected' : ''}>Ready for Review</option>
-                <option value="ready for deployment" ${ticket.status === 'ready for deployment' ? 'selected' : ''}>Ready for Deployment</option>
-                <option value="completed" ${ticket.status === 'completed' ? 'selected' : ''}>Completed</option>
-            </select>
-
-            <br>
-            
-            <h5>Ticket Type</h5>
-
-            <div class="radio-container">
-                <div class="form-check">
-                    <input class="form-check-input" ${ticket.ticket_type === 'feature' ? 'checked' : ''} value="feature" type="radio" name="ticket_type" id="feature">
-                    <label class="form-check-label" for="feature">
-                    Feature
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" ${ticket.ticket_type === 'bug' ? 'checked' : ''} value="bug" type="radio" name="ticket_type" id="bug">
-                    <label class="form-check-label" for="bug">
-                    Bug
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" ${ticket.ticket_type === 'chore' ? 'checked' : ''} value="chore" type="radio" name="ticket_type" id="chore">
-                    <label class="form-check-label" for="chore">
-                    Chore
-                    </label>
-                </div>
-            </div>
-            
-            <br>
-            
-            <h5>Effort</h5>
-            <select class="form-select" id="effort" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1" ${ticket.effort === 1 ? 'selected' : ''}>1</option>
-                <option value="2" ${ticket.effort === 2 ? 'selected' : ''}>2</option>
-                <option value="3" ${ticket.effort === 3 ? 'selected' : ''}>3</option>
-                <option value="5" ${ticket.effort === 5 ? 'selected' : ''}>5</option>
-                <option value="8" ${ticket.effort === 8 ? 'selected' : ''}>8</option>
-                <option value="13" ${ticket.effort === 13 ? 'selected' : ''}>13</option>
-            </select>
-            
-            <br>
-            <div class="modal-buttons">
-                <input type="submit" value="Save" class="btn btn-create-ticket-button" id="close-modal-btn" />
-                <input type="submit" value="Delete" class="btn btn-create-ticket-button" id="delete-modal-btn" />
-            </div>
-        </form>
-
+        </div>
+        </div>
         `
-
+        document.querySelector('.expand-modal').addEventListener('click', handleModal)
         document.querySelector('#edit-ticket-form').addEventListener('submit', TicketApi.updateTicket)
         document.querySelector('#edit-ticket-form').addEventListener('submit', TicketApi.deleteTicket)
         
     }
+
+    
 
     static addNewTicketForm(){
         const modal = document.querySelector('#modal')

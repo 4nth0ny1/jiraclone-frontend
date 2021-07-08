@@ -26,6 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
+function handleModal(){
+  const commentsContainer = document.querySelector('.comments-container')
+  commentsContainer.style.width = '400px'
+
+  
+
+
+
+}
 
 
 
