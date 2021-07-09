@@ -135,8 +135,8 @@ class Ticket {
                 
             </div>
             <div class="comments-container">
-
-        </div>
+                
+            </div>
         </div>
         `
         document.querySelector('.expand-modal').addEventListener('click', handleModal)

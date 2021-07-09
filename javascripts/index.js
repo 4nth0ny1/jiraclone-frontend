@@ -30,9 +30,17 @@ function handleModal(){
   const commentsContainer = document.querySelector('.comments-container')
   commentsContainer.style.width = '400px'
 
-  
+  const ticketId = e.target.dataset.ticketId
+  CommentApi.fetchAll(ticketId)
+  const button = document.createElement('button')
+  button.innerText = "Add Comment"
+  button.classList.add('add-comment-button')
+  button.dataset.ticketId = ticketId
 
+  const ticketDiv = document.querySelector(`#ticket-${ticketId}`)
+  ticketDiv.appendChild(button)
 
+  button.addEventListener('click', Comment.newComment)
 
 }
 
