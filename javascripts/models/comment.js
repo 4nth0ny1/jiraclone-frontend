@@ -13,6 +13,7 @@ class Comment {
         if (document.querySelector(`#comment-${this.id}`)) {
             return
         }
+        const commentsContainer = document.querySelector('.comments-container')
         const ticketDiv = document.getElementById(`ticket-${this.ticketId}`)
         const div = document.createElement('div')
 
@@ -34,7 +35,7 @@ class Comment {
 
         div.appendChild(editButton)
         div.appendChild(deleteButton)
-        ticketDiv.appendChild(div)
+        commentsContainer.appendChild(div)
 
         deleteButton.addEventListener('click', CommentApi.deleteComment)
         editButton.addEventListener('click', Comment.editComment)
