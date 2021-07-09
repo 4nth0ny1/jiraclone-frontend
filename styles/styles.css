@@ -130,15 +130,15 @@ body {
 }
 
 .card-feature {
-  background: green !important;
+  background: #f08e7e !important;
 }
 
 .card-bug {
-  background: red !important;
+  background: #48eb3f !important;
 }
 
 .card-chore {
-  background: yellow !important;
+  background: #136bf0 !important;
 }
 
 .column-heading {
@@ -238,7 +238,7 @@ ul {
 
 .comments-container {
   text-align: right;
-  background: purple;
+  background: #3e0748;
   color: white;
   height: 100%;
   min-height: 800px;
