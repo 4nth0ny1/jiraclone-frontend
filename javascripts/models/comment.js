@@ -23,28 +23,17 @@ class Comment {
         `
             <li class="comment-info">${this.content}</li>
             <div class="modal-buttons">
-                <input type="submit" value="Edit" class="btn btn-create-comment-button" id="close-modal-btn" />
-                <input type="submit" value="Delete" class="btn btn-create-comment-button" id="delete-modal-btn" />
+                <input type="button" value="Edit" data-comment-id="${this.id}" class="btn jira-btn edit-comment-btn" />
+                <input type="button" value="Delete" data-comment-id="${this.id}" class="btn jira-btn delete-comment-btn" />
             </div>
         
 
         `
-        // const deleteButton = document.createElement('button')
-        // deleteButton.classList.add('delete-comment-button')
-        // deleteButton.dataset.commentId = this.id
-        // deleteButton.innerText = "Delete Comment"
-
-        // const editButton = document.createElement('button')
-        // editButton.classList.add('edit-comment-button')
-        // editButton.dataset.commentId = this.id
-        // editButton.innerText = "Edit Comment"
-
-        // div.appendChild(editButton)
-        // div.appendChild(deleteButton)
         commentsOnly.appendChild(div)
 
-        
-        // deleteButton.addEventListener('click', CommentApi.deleteComment)
+        const deleteButton = div.querySelector('.delete-comment-btn')
+                
+        deleteButton.addEventListener('click', CommentApi.deleteComment)
         // editButton.addEventListener('click', Comment.editComment)
     }
 

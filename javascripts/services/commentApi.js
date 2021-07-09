@@ -36,6 +36,17 @@ class CommentApi {
         })
     }
 
+    static deleteComment(e){
+        const commentId = e.target.dataset.commentId
+
+        document.querySelector(`#comment-${commentId}`).remove()
+
+        fetch(`http://127.0.0.1:3000/comments/${commentId}`, {
+            method: "DELETE"
+        })
+     
+    }
+
 
 
 
