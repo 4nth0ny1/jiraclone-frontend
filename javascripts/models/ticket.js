@@ -60,7 +60,7 @@ class Ticket {
             <div class="edit-form-container">
 
                 <h2 class="edit-title">Edit a Ticket</h2>
-                <button class="expand-modal">View Comments</button>
+                <span class="icon expand-modal"><i class="fa fa-comments" aria-hidden="true"></i></span>
                 <br>
 
                 <form id="edit-ticket-form" data-ticket-id="${ticket.id}">

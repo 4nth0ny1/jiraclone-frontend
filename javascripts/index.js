@@ -29,18 +29,21 @@ document.addEventListener('DOMContentLoaded', () => {
 function handleModal(e){
   const commentsContainer = document.querySelector('.comments-container')
   commentsContainer.style.width = '400px'
+  commentsContainer.style.padding = '25px'
+  commentsContainer.style.marginLeft = '10px'
 
   const ticketId = e.target.dataset.ticketId
   CommentApi.fetchAll(ticketId)
-  const button = document.createElement('button')
-  button.innerText = "Add Comment"
-  button.classList.add('add-comment-button')
-  button.dataset.ticketId = ticketId
 
-  const ticketDiv = document.querySelector(`#ticket-${ticketId}`)
-  ticketDiv.appendChild(button)
+  // const button = document.createElement('button')
+  // button.innerText = "Add Comment"
+  // button.classList.add('add-comment-button')
+  // button.dataset.ticketId = ticketId
 
-  button.addEventListener('click', Comment.newComment)
+  // const ticketDiv = document.querySelector(`#ticket-${ticketId}`)
+  // ticketDiv.appendChild(button)
+
+  // button.addEventListener('click', Comment.newComment)
 
 }
 
