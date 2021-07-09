@@ -148,12 +148,14 @@ body {
   text-align: center;
 }
 
-.btn-create-ticket-button {
+.btn-create-ticket-button,
+.btn-create-comment-button {
   background: var(--button-background-color) !important;
   color: var(--text-color-white) !important;
 }
 
-.btn-create-ticket-button:hover {
+.btn-create-ticket-button:hover,
+.btn-create-comment-button:hover {
   background: var(--button-background-hover-color) !important;
   color: var(--text-color-white) !important;
 }
@@ -176,7 +178,6 @@ body {
   border: 1px solid black;
   border-radius: 0.25rem;
   background-color: white;
-  overflow-y: auto;
 }
 
 #overlay {
@@ -232,6 +233,8 @@ ul {
 .edit-form-container {
   width: 600px;
   padding: 15px;
+  overflow-y: auto;
+  height: 800px;
 }
 
 .modal-container {
@@ -266,4 +269,9 @@ ul {
 
 .add-comment-button {
   margin-top: 10px;
+}
+
+.comments-only {
+  overflow-y: auto;
+  height: 600px;
 }

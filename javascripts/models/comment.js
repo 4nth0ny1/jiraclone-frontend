@@ -13,8 +13,8 @@ class Comment {
         if (document.querySelector(`#comment-${this.id}`)) {
             return
         }
-        const commentsContainer = document.querySelector('.comments-container')
-        const ticketDiv = document.getElementById(`ticket-${this.ticketId}`)
+        const commentsOnly = document.querySelector('.comments-only')
+        // const ticketDiv = document.getElementById(`ticket-${this.ticketId}`)
         const div = document.createElement('div')
 
         div.id = `comment-${this.id}`
@@ -23,14 +23,10 @@ class Comment {
         `
             <li class="comment-info">${this.content}</li>
             <div class="modal-buttons">
-                <input type="submit" value="Edit" class="btn btn-create-ticket-button" id="close-modal-btn" />
-                <input type="submit" value="Delete" class="btn btn-create-ticket-button" id="delete-modal-btn" />
+                <input type="submit" value="Edit" class="btn btn-create-comment-button" id="close-modal-btn" />
+                <input type="submit" value="Delete" class="btn btn-create-comment-button" id="delete-modal-btn" />
             </div>
-            <div class="modal-buttons add-comment-div">
-                <textarea class="form-control" id="content" placeholder="add comment ..." rows="5"></textarea>
-
-                <input type="submit" value="Add Comment" class="btn btn-create-ticket-button add-comment-button" id="add-comment-modal-btn" />
-            </div>
+        
 
         `
         // const deleteButton = document.createElement('button')
@@ -45,14 +41,42 @@ class Comment {
 
         // div.appendChild(editButton)
         // div.appendChild(deleteButton)
-        commentsContainer.appendChild(div)
+        commentsOnly.appendChild(div)
 
-        deleteButton.addEventListener('click', CommentApi.deleteComment)
-        editButton.addEventListener('click', Comment.editComment)
+        
+        // deleteButton.addEventListener('click', CommentApi.deleteComment)
+        // editButton.addEventListener('click', Comment.editComment)
+    }
+
+    static renderNewCommentForm(){
+        if (document.querySelector('#new-comment-form')){
+            return
+        }
+        const div = document.createElement('div')
+        const ticketId = document.querySelector('#edit-ticket-form').dataset.ticketId
+        const commentsContainer = document.querySelector('.comments-container')
+
+        div.classList.add('modal-buttons')
+        div.classList.add('add-comment-div')
+        div.innerHTML = 
+        `
+            <form id="new-comment-form">
+                <textarea class="form-control" id="content" placeholder="add comment ..." rows="3"></textarea>
+
+                <input type="hidden" value="${ticketId}" id="comment-ticket-id" />
+                <input type="submit" value="Add Comment" class="btn btn-create-comment-button add-comment-button" id="add-comment-modal-btn" />
+                
+            </form>
+
+        `
+
+        commentsContainer.append(div)
+        
+        document.querySelector('#new-comment-form').addEventListener('submit', CommentApi.createComment)
+
     }
 
 
 
-
-
 }
+

@@ -135,6 +135,9 @@ class Ticket {
                 
             </div>
             <div class="comments-container">
+                <div class="comments-only">
+
+                </div>
                 
             </div>
         </div>
