@@ -129,7 +129,7 @@ class Ticket {
                     <br>
                     <div class="modal-buttons">
                         <input type="submit" value="Save" class="btn btn-create-ticket-button" id="close-modal-btn" />
-                        <input type="submit" value="Delete" class="btn btn-create-ticket-button" id="delete-modal-btn" />
+                        <input type="button" value="Delete" class="btn btn-create-ticket-button" id="delete-modal-btn" />
                     </div>
                 </form>
                 
@@ -141,7 +141,7 @@ class Ticket {
         `
         document.querySelector('.expand-modal').addEventListener('click', handleModal)
         document.querySelector('#edit-ticket-form').addEventListener('submit', TicketApi.updateTicket)
-        document.querySelector('#edit-ticket-form').addEventListener('submit', TicketApi.deleteTicket)
+        document.querySelector('#delete-modal-btn').addEventListener('click', TicketApi.deleteTicket)
         
     }
 

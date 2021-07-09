@@ -3,7 +3,7 @@
   --col-background-color: #3e0748;
   --card-background-color: rgb(38, 25, 216);
   --card-background-hover-color: #ea1d63;
-  --button-background-color: rgb(38, 25, 216);
+  --button-background-color: #136bf0;
   --button-background-hover-color: lightgreen;
   --text-color-white: white;
   --text-color-black: black;
@@ -88,7 +88,7 @@ body {
 }
 
 .container {
-  padding: 0 !important;
+  padding-top: 30px !important;
   margin: 0 !important;
 }
 
@@ -221,6 +221,8 @@ ul {
 .expand-modal {
   float: right;
   cursor: pointer;
+  color: #136bf0;
+  font-size: 24px;
 }
 
 .edit-title {

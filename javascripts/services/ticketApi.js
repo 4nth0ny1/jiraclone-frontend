@@ -25,6 +25,12 @@ class TicketApi {
                 }
             })
         })
+        .then(res => res.json())
+        .then(data => {
+            const ticket = Ticket.findById(data.id)
+            ticket.refresh(data)
+            closeModal()
+        })  
     }
 
     static createTicket(e){

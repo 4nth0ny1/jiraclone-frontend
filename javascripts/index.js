@@ -28,9 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function handleModal(e){
   const commentsContainer = document.querySelector('.comments-container')
+  const expandModal = document.querySelector('.expand-modal')
   commentsContainer.style.width = '400px'
   commentsContainer.style.padding = '25px'
   commentsContainer.style.marginLeft = '10px'
+  commentsContainer.style.transition = '1s'
+
+  expandModal.style.color = 'red'
 
   const ticketId = e.target.dataset.ticketId
   CommentApi.fetchAll(ticketId)
