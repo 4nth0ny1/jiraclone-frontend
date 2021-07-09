@@ -27,27 +27,35 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function handleModal(e){
+
   const commentsContainer = document.querySelector('.comments-container')
-  const expandModal = document.querySelector('.expand-modal')
-  commentsContainer.style.width = '400px'
-  commentsContainer.style.padding = '25px'
-  commentsContainer.style.marginLeft = '10px'
-  commentsContainer.style.transition = '1s'
+  if (commentsContainer.classList.contains('open')) {
 
-  expandModal.style.color = 'red'
+    commentsContainer.classList.remove('open')
+    commentsContainer.style.padding = '0px'
+    commentsContainer.style.marginLeft = '0px'
+    if(document.querySelector('#new-comment-form')){
+      document.querySelector('#new-comment-form').classList.add('d-none')
+    }
+    commentsContainer.style.width = '0px'
 
-  const ticketId = e.target.dataset.ticketId
-  CommentApi.fetchAll(ticketId)
+    
+  } else {
+    commentsContainer.classList.add('open')
+    const expandModal = document.querySelector('.expand-modal')
+    commentsContainer.style.padding = '25px'
+    commentsContainer.style.marginLeft = '10px'
+    if(document.querySelector('#new-comment-form')){
+      document.querySelector('#new-comment-form').classList.remove('d-none')
+    }
+    
+    const ticketId = e.target.dataset.ticketId
+    CommentApi.fetchAll(ticketId)
+    commentsContainer.style.width = '400px'
 
-  // const button = document.createElement('button')
-  // button.innerText = "Add Comment"
-  // button.classList.add('add-comment-button')
-  // button.dataset.ticketId = ticketId
+  
+  }
 
-  // const ticketDiv = document.querySelector(`#ticket-${ticketId}`)
-  // ticketDiv.appendChild(button)
-
-  // button.addEventListener('click', Comment.newComment)
 
 }
 

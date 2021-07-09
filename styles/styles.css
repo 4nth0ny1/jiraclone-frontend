@@ -149,14 +149,14 @@ body {
 }
 
 .btn-create-ticket-button,
-.btn-create-comment-button, 
+.btn-create-comment-button,
 .jira-btn {
   background: var(--button-background-color) !important;
   color: var(--text-color-white) !important;
 }
 
 .btn-create-ticket-button:hover,
-.btn-create-comment-button:hover, 
+.btn-create-comment-button:hover,
 .jira-btn:hover {
   background: var(--button-background-hover-color) !important;
   color: var(--text-color-white) !important;
@@ -250,6 +250,7 @@ ul {
   height: 100%;
   min-height: 800px;
   position: relative;
+  transition: 0.5s;
 }
 
 .comment-info {
@@ -276,4 +277,8 @@ ul {
 .comments-only {
   overflow-y: auto;
   height: 600px;
+}
+
+.comment {
+  margin-bottom: 10px;
 }

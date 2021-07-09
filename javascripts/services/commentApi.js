@@ -36,6 +36,8 @@ class CommentApi {
         })
     }
 
+    
+
     static deleteComment(e){
         const commentId = e.target.dataset.commentId
 

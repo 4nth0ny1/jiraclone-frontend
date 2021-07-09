@@ -23,8 +23,7 @@ class Comment {
         `
             <li class="comment-info">${this.content}</li>
             <div class="modal-buttons">
-                <input type="button" value="Edit" data-comment-id="${this.id}" class="btn jira-btn edit-comment-btn" />
-                <input type="button" value="Delete" data-comment-id="${this.id}" class="btn jira-btn delete-comment-btn" />
+                <input type="button" value="Delete" data-comment-id="${this.id}" class="btn btn-danger delete-comment-btn" />
             </div>
         
 
@@ -32,9 +31,8 @@ class Comment {
         commentsOnly.appendChild(div)
 
         const deleteButton = div.querySelector('.delete-comment-btn')
-                
+
         deleteButton.addEventListener('click', CommentApi.deleteComment)
-        // editButton.addEventListener('click', Comment.editComment)
     }
 
     static renderNewCommentForm(){
