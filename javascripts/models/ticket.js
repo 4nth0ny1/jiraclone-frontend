@@ -94,19 +94,19 @@ class Ticket {
 
                     <div class="radio-container">
                         <div class="form-check">
-                            <input class="form-check-input" ${ticket.ticket_type === 'feature' ? 'checked' : ''} value="feature" type="radio" name="ticket_type" id="feature">
+                            <input class="form-check-input form-${formatToClass(ticket.ticket_type)} form-ticket-type-feature" ${ticket.ticket_type === 'feature' ? 'checked' : ''} value="feature" type="radio" name="ticket_type" id="feature">
                             <label class="form-check-label" for="feature">
                             Feature
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" ${ticket.ticket_type === 'bug' ? 'checked' : ''} value="bug" type="radio" name="ticket_type" id="bug">
+                            <input class="form-check-input form-${formatToClass(ticket.ticket_type)} form-ticket-type-bug" ${ticket.ticket_type === 'bug' ? 'checked' : ''} value="bug" type="radio" name="ticket_type" id="bug">
                             <label class="form-check-label" for="bug">
                             Bug
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" ${ticket.ticket_type === 'chore' ? 'checked' : ''} value="chore" type="radio" name="ticket_type" id="chore">
+                            <input class="form-check-input form-${formatToClass(ticket.ticket_type)} form-ticket-type-chore" ${ticket.ticket_type === 'chore' ? 'checked' : ''} value="chore" type="radio" name="ticket_type" id="chore">
                             <label class="form-check-label" for="chore">
                             Chore
                             </label>
