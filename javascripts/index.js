@@ -52,7 +52,7 @@ function handleModal(e){
     const ticketId = e.target.dataset.ticketId
     CommentApi.fetchAll(ticketId)
     commentsContainer.style.width = '400px'
-
+    Comment.renderNewCommentForm()
   
   }
 
