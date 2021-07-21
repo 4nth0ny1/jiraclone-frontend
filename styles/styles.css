@@ -1,10 +1,10 @@
 :root {
   --div-background-color: rgba(46, 45, 45, 0.952);
   --col-background-color: #2a2a2a;
-  --card-background-color: rgb(38, 25, 216);
+  --card-background-color: #545454;
   --card-background-hover-color: #ea1d63;
-  --button-background-color: #136bf0;
-  --button-background-hover-color: lightgreen;
+  --button-background-color: #545454;
+  --button-background-hover-color: #ea1d63;
   --text-color-white: white;
   --text-color-black: black;
   --border-radius: 5px;
@@ -93,7 +93,6 @@ body {
 }
 
 #ticket-container {
-  
   flex-wrap: nowrap !important;
   margin-left: 100px;
   transition: 0.5s;
@@ -106,7 +105,6 @@ body {
   padding: 10px;
   margin: 10px;
   width: 200px !important;
-  box-shadow: 1px 1px 1px 0px #3e0748;
   position: relative;
   overflow-y: auto;
 }
@@ -130,15 +128,15 @@ body {
 }
 
 .card-feature {
-  background: #83453b !important;
+  border-left: 10px solid #bd5242 !important;
 }
 
 .card-bug {
-  background: #3b5739 !important;
+  border-left: 10px solid #498646 !important;
 }
 
 .card-chore {
-  background: #136bf0 !important;
+  border-left: 10px solid #136bf0 !important;
 }
 
 .column-heading {
@@ -245,7 +243,7 @@ ul {
 
 .comments-container {
   text-align: right;
-  background: #3e0748;
+  background: #151515;
   color: white;
   height: 100%;
   min-height: 800px;
