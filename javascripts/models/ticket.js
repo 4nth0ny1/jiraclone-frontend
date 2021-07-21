@@ -37,8 +37,20 @@ class Ticket {
         const statusContainer = document.querySelector(`.${statusClass}`)
         statusContainer.append(ticketContainer)
         const card = ticketContainer.querySelector('.card')
-        card.addEventListener('click', Ticket.addEditTicketForm)
+        
+        ticketContainer.removeEventListener('dragstart', function(e) {})
+        ticketContainer.removeEventListener('dragend', function() {})
 
+        card.addEventListener('click', Ticket.addEditTicketForm)
+        ticketContainer.addEventListener('dragstart', () => {
+            ticketContainer.classList.add('dragging')
+          })
+          ticketContainer.addEventListener('dragend', (e) => {
+            ticketContainer.classList.remove('dragging')
+            const ticketId = e.target.dataset.id 
+            const ticketStatus = e.target.closest(".ticket-status-column").dataset.status
+            TicketApi.updateStatus(ticketId, ticketStatus)
+          })
         // overlay.addEventListener('click', closeModal)
         // closeModalBtn.addEventListener('click', closeModal)
 
@@ -94,19 +106,19 @@ class Ticket {
 
                     <div class="radio-container">
                         <div class="form-check">
-                            <input class="form-check-input form-${formatToClass(ticket.ticket_type)} form-ticket-type-feature" ${ticket.ticket_type === 'feature' ? 'checked' : ''} value="feature" type="radio" name="ticket_type" id="feature">
+                            <input class="form-check-input form-ticket-type-feature" ${ticket.ticket_type === 'feature' ? 'checked' : ''} value="feature" type="radio" name="ticket_type" id="feature">
                             <label class="form-check-label" for="feature">
                             Feature
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input form-${formatToClass(ticket.ticket_type)} form-ticket-type-bug" ${ticket.ticket_type === 'bug' ? 'checked' : ''} value="bug" type="radio" name="ticket_type" id="bug">
+                            <input class="form-check-input form-ticket-type-bug" ${ticket.ticket_type === 'bug' ? 'checked' : ''} value="bug" type="radio" name="ticket_type" id="bug">
                             <label class="form-check-label" for="bug">
                             Bug
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input form-${formatToClass(ticket.ticket_type)} form-ticket-type-chore" ${ticket.ticket_type === 'chore' ? 'checked' : ''} value="chore" type="radio" name="ticket_type" id="chore">
+                            <input class="form-check-input form-ticket-type-chore" ${ticket.ticket_type === 'chore' ? 'checked' : ''} value="chore" type="radio" name="ticket_type" id="chore">
                             <label class="form-check-label" for="chore">
                             Chore
                             </label>
@@ -154,77 +166,78 @@ class Ticket {
         const modal = document.querySelector('#modal')
         modal.innerHTML = 
         `
-        <h2>Create a Ticket</h2>
+        <div class="new-form-container">
+            <h2>Create a Ticket</h2>
 
-        <form id="new-ticket-form">
-            <div class="form-group">
-                <input class="form-control" id="title" placeholder="Title" rows="5"></input>
-            </div>
+            <form id="new-ticket-form">
+                <div class="form-group">
+                    <input class="form-control" id="title" placeholder="Title" rows="5"></input>
+                </div>
 
-            <br>
+                <br>
+                    
+
+                <div class="form-group">
+                    <textarea class="form-control" id="description" placeholder="Description" rows="5"></textarea>
+                </div>
+            
+                <br>
+
+                <h5>Status</h5>
+                <select class="form-select" aria-label="Default select example" id="status">
+                    <option selected>Open this select menu</option>
+                    <option value="unscheduled">Unscheduled</option>
+                    <option value="ready for development">Ready for Development</option>
+                    <option value="in development">In Development</option>
+                    <option value="ready for review">Ready for Review</option>
+                    <option value="ready for deployment">Ready for Deployment</option>
+                    <option value="completed">Completed</option>
+                </select>
+
+                <br>
                 
+                <h5>Ticket Type</h5>
 
-            <div class="form-group">
-                <textarea class="form-control" id="description" placeholder="Description" rows="5"></textarea>
-            </div>
-        
-            <br>
-
-            <h5>Status</h5>
-            <select class="form-select" aria-label="Default select example" id="status">
-                <option selected>Open this select menu</option>
-                <option value="unscheduled">Unscheduled</option>
-                <option value="ready for development">Ready for Development</option>
-                <option value="in development">In Development</option>
-                <option value="ready for review">Ready for Review</option>
-                <option value="ready for deployment">Ready for Deployment</option>
-                <option value="completed">Completed</option>
-            </select>
-
-            <br>
-            
-            <h5>Ticket Type</h5>
-
-            <div class="radio-container">
-                <div class="form-check">
-                    <input class="form-check-input" value="feature" type="radio" name="ticket_type" id="feature">
-                    <label class="form-check-label" for="feature">
-                    Feature
-                    </label>
+                <div class="radio-container">
+                    <div class="form-check">
+                        <input class="form-check-input form-ticket-type-feature" value="feature" type="radio" name="ticket_type" id="feature">
+                        <label class="form-check-label" for="feature">
+                        Feature
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input form-ticket-type-bug" value="bug" type="radio" name="ticket_type" id="bug">
+                        <label class="form-check-label" for="bug">
+                        Bug
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input form-ticket-type-chore" value="chore" type="radio" name="ticket_type" id="chore">
+                        <label class="form-check-label" for="chore">
+                        Chore
+                        </label>
+                    </div>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" value="bug" type="radio" name="ticket_type" id="bug">
-                    <label class="form-check-label" for="bug">
-                    Bug
-                    </label>
+                
+                <br>
+                
+                <h5>Effort</h5>
+                <select class="form-select" id="effort" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="8">8</option>
+                    <option value="13">13</option>
+                </select>
+                
+                <br>
+                <div class="modal-buttons">
+                    <input type="submit" value="Save" class="btn btn-create-ticket-button" id="close-modal-btn" />
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" value="chore" type="radio" name="ticket_type" id="chore">
-                    <label class="form-check-label" for="chore">
-                    Chore
-                    </label>
-                </div>
-            </div>
-            
-            <br>
-            
-            <h5>Effort</h5>
-            <select class="form-select" id="effort" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="5">5</option>
-                <option value="8">8</option>
-                <option value="13">13</option>
-            </select>
-            
-            <br>
-            <div class="modal-buttons">
-                <input type="submit" value="Save" class="btn btn-create-ticket-button" id="close-modal-btn" />
-            </div>
-        </form>
-
+            </form>
+        </div>
         `
 
         document.querySelector('#new-ticket-form').addEventListener('submit', TicketApi.createTicket)

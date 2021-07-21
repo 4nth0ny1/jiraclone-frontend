@@ -82,7 +82,12 @@ function initializeDrag(){
         container.addEventListener('dragover', e => {
           e.preventDefault()
           const afterElement = getDragAfterElement(container, e.clientY)
-          const draggable = document.querySelector('.dragging')
+          let draggable = document.querySelector('.dragging')
+          debugger
+          if (!draggable) {
+            draggable = e.target.closest('.draggable')
+          }
+          debugger
           if (afterElement == null) {
             container.appendChild(draggable)
           } else {
@@ -115,17 +120,7 @@ function initializeDrag(){
     overlay.classList.remove('open')
   }
 
-  // function alterCardStatusOnDrag() {
-  //   const draggables = document.querySelectorAll('.draggable')
-  //     draggables.forEach(draggable => {
-  //       const parentOfDraggable = draggable.parentElement
-  //       if (parentOfDraggable.dataset.status === draggable.dataset.status) {
-  //           console.log('yes')
-  //       } else {
-  //           console.log('no')
-  //       }
-  //     })
-  // }
+
 
 
 

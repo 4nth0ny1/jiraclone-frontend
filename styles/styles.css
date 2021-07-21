@@ -266,7 +266,8 @@ ul {
   float: left;
 }
 
-.edit-form-container {
+.edit-form-container,
+.new-form-container {
   width: 600px;
   padding: 15px;
   overflow-y: auto;

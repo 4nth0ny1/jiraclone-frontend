@@ -60,6 +60,7 @@ class TicketApi {
     }
 
     static updateTicket(e){
+        e.preventDefault()
         const ticketId = e.target.dataset.ticketId
         const data = {
             ticket: {
@@ -70,6 +71,7 @@ class TicketApi {
                 effort: e.target.querySelector('#effort').value
             }
         }
+        e.target.querySelector('.btn-create-ticket-button').disabled = true
         fetch(`http://127.0.0.1:3000/tickets/${ticketId}`, {
             headers: {
                 'Content-type': 'application/json', 
