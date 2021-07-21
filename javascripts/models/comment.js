@@ -23,7 +23,7 @@ class Comment {
         `
             <li class="comment-info">${this.content}</li>
             <div class="modal-buttons">
-                <input type="button" value="Delete" data-comment-id="${this.id}" class="btn btn-danger delete-comment-btn" />
+                <input type="button" value="Delete" data-comment-id="${this.id}" class="btn btn-create-ticket-button delete-comment-btn" />
             </div>
         
 
