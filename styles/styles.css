@@ -1,6 +1,6 @@
 :root {
   --div-background-color: rgba(46, 45, 45, 0.952);
-  --col-background-color: #3e0748;
+  --col-background-color: #2a2a2a;
   --card-background-color: rgb(38, 25, 216);
   --card-background-hover-color: #ea1d63;
   --button-background-color: #136bf0;
@@ -17,7 +17,7 @@
 }
 
 body {
-  background: #150019 !important;
+  background: #151515 !important;
   min-height: 100vh;
 }
 
@@ -25,7 +25,7 @@ body {
   position: fixed;
   width: 60px;
   height: 100%;
-  background: #3e0748;
+  background: #2a2a2a;
   transition: 0.5s;
   overflow: hidden;
 }
@@ -93,7 +93,7 @@ body {
 }
 
 #ticket-container {
-  background: #150019;
+  
   flex-wrap: nowrap !important;
   margin-left: 100px;
   transition: 0.5s;
@@ -130,11 +130,11 @@ body {
 }
 
 .card-feature {
-  background: #f08e7e !important;
+  background: #83453b !important;
 }
 
 .card-bug {
-  background: #48eb3f !important;
+  background: #3b5739 !important;
 }
 
 .card-chore {
