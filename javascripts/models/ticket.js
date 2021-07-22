@@ -37,23 +37,7 @@ class Ticket {
         const statusContainer = document.querySelector(`.${statusClass}`)
         statusContainer.append(ticketContainer)
         const card = ticketContainer.querySelector('.card')
-        
-        ticketContainer.removeEventListener('dragstart', function(e) {})
-        ticketContainer.removeEventListener('dragend', function() {})
-
         card.addEventListener('click', Ticket.addEditTicketForm)
-        ticketContainer.addEventListener('dragstart', () => {
-            ticketContainer.classList.add('dragging')
-          })
-          ticketContainer.addEventListener('dragend', (e) => {
-            ticketContainer.classList.remove('dragging')
-            const ticketId = e.target.dataset.id 
-            const ticketStatus = e.target.closest(".ticket-status-column").dataset.status
-            TicketApi.updateStatus(ticketId, ticketStatus)
-          })
-        // overlay.addEventListener('click', closeModal)
-        // closeModalBtn.addEventListener('click', closeModal)
-
     }
 
     static addEditTicketForm(e){
@@ -141,7 +125,7 @@ class Ticket {
                     <br>
                     <div class="modal-buttons">
                         <input type="submit" value="Save" class="btn btn-create-ticket-button" id="close-modal-btn" />
-                        <input type="button" value="Delete" class="btn btn-create-ticket-button" id="delete-modal-btn" />
+                        <input type="button" data-ticket-id=${ticket.id} value="Delete" class="btn btn-create-ticket-button" id="delete-modal-btn" />
                     </div>
                 </form>
                 
@@ -157,7 +141,6 @@ class Ticket {
         document.querySelector('.expand-modal').addEventListener('click', handleModal)
         document.querySelector('#edit-ticket-form').addEventListener('submit', TicketApi.updateTicket)
         document.querySelector('#delete-modal-btn').addEventListener('click', TicketApi.deleteTicket)
-        
     }
 
     

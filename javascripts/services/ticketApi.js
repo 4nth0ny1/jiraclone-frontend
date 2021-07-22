@@ -56,6 +56,8 @@ class TicketApi {
         .then(data => {
             const ticket = new Ticket(data)
             ticket.render()
+            const draggable = document.querySelector(`#ticket-${ticket.id}`)
+            addDragListener(draggable)
         })
         closeModal()
     }
@@ -88,10 +90,13 @@ class TicketApi {
             document.querySelector(`#ticket-${ticket.id}`).remove()
             ticket.render()
             closeModal()
+            const draggable = document.querySelector(`#ticket-${ticket.id}`)
+            addDragListener(draggable)
         })  
     }
 
     static deleteTicket(e){
+        debugger
         const ticketId = e.target.dataset.ticketId
         
         document.querySelector(`#ticket-${ticketId}`).remove()

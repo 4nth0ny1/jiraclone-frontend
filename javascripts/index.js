@@ -55,41 +55,39 @@ function handleModal(e){
     CommentApi.fetchAll(ticketId)
     commentsContainer.style.width = '400px'
     Comment.renderNewCommentForm()
-  
   }
-
-
 }
 
-
+function addDragListener(draggable){
+  draggable.removeEventListener('dragstart', function () {})
+    draggable.removeEventListener('dragend', function(){})
+    draggable.addEventListener('dragstart', () => {
+      draggable.classList.add('dragging')
+  })
+  draggable.addEventListener('dragend', (e) => {
+    draggable.classList.remove('dragging')
+    const ticketId = e.target.dataset.id
+    const ticketStatus = e.target.closest(".ticket-status-column").dataset.status
+    TicketApi.updateStatus(ticketId, ticketStatus)
+  })
+}
 
 function initializeDrag(){
     const draggables = document.querySelectorAll('.draggable')
-    const containers = document.querySelectorAll('.ticket-status-column')
-    
-    
+    const containers = document.querySelectorAll('.ticket-status-column')   
+
     draggables.forEach(draggable => {
-      draggable.addEventListener('dragstart', () => {
-        draggable.classList.add('dragging')
-      })
-      draggable.addEventListener('dragend', (e) => {
-        draggable.classList.remove('dragging')
-        const ticketId = e.target.dataset.id 
-        const ticketStatus = e.target.closest(".ticket-status-column").dataset.status
-        TicketApi.updateStatus(ticketId, ticketStatus)
-      })
+      addDragListener(draggable)
     })
-    
+      
     containers.forEach(container => {
         container.addEventListener('dragover', e => {
           e.preventDefault()
           const afterElement = getDragAfterElement(container, e.clientY)
           let draggable = document.querySelector('.dragging')
-          debugger
           if (!draggable) {
             draggable = e.target.closest('.draggable')
           }
-          debugger
           if (afterElement == null) {
             container.appendChild(draggable)
           } else {
