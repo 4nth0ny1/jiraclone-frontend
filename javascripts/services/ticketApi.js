@@ -34,6 +34,7 @@ class TicketApi {
     }
 
     static createTicket(e){
+        e.preventDefault()
         const data = {
             ticket: {
                 title: e.target.querySelector('#title').value, 

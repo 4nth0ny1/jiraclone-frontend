@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
       Ticket.addNewTicketForm()
     })
 
+    toggleBackground()
+
 })
 
 function handleModal(e){
@@ -120,7 +122,12 @@ function initializeDrag(){
     overlay.classList.remove('open')
   }
 
-
+  function toggleBackground(){
+    const toggleIcon = document.querySelector('.icon-toggle-background')
+    toggleIcon.addEventListener('click', () => {
+      document.body.classList.toggle('white')
+    })
+  }
 
 
 
