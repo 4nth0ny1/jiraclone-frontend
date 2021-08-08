@@ -177,6 +177,21 @@ body {
   border-color: #136bf0 !important;
 }
 
+.form-priority-low:checked {
+  background: limegreen !important;
+  border-color: limegreen !important;
+}
+
+.form-priority-med:checked {
+  background: red !important;
+  border-color: red !important;
+}
+
+.form-priority-high:checked {
+  background: lightsalmon !important;
+  border-color: lightsalmon !important;
+}
+
 .column-heading {
   padding: 10px 0 20px 0 !important;
   height: 75px;

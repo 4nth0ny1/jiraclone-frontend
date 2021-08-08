@@ -101,7 +101,7 @@ function initializeDrag(){
     const draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')]
   
     return draggableElements.reduce((closest, child) => {
-      const box = child.getBoundingClientRect()
+      const box = child.getBoundingClientRect() // tells you the position of the rect in the viewport of the dom
       const offset = y - box.top - box.height / 2
       if (offset < 0 && offset > closest.offset) {
         return { offset: offset, element: child }
@@ -109,6 +109,7 @@ function initializeDrag(){
         return closest
       }
     }, { offset: Number.NEGATIVE_INFINITY }).element
+   
   }
 
   function formatToClass(str){

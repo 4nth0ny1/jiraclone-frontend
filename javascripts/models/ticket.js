@@ -4,13 +4,14 @@ class Ticket {
 
     static all = []
 
-    constructor({id, status, title, description, ticket_type, effort}){
+    constructor({id, status, title, description, ticket_type, effort, priority}){
         this.id = id
         this.status = status 
         this.title = title
         this.description = description
         this.ticket_type = ticket_type
         this.effort = effort
+        this.priority = priority
         Ticket.all.push(this)
     }
 
@@ -28,6 +29,7 @@ class Ticket {
                 <div class="card card-${formatToClass(this.ticket_type)}" data-ticket-id="${this.id}" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">${this.title}</h5>
+                        <h5 class="card-title-effort">Effort: ${this.effort}</h5>
                     </div>
                 </div>
             </a>
@@ -54,7 +56,6 @@ class Ticket {
         `
         <div class="modal-container">
             <div class="edit-form-container">
-
                 <h2 class="edit-title">Edit a Ticket</h2>
                 <span class="icon expand-modal"><i class="fa fa-comments" aria-hidden="true"></i></span>
                 <br>
@@ -105,6 +106,31 @@ class Ticket {
                             <input class="form-check-input form-ticket-type-chore" ${ticket.ticket_type === 'chore' ? 'checked' : ''} value="chore" type="radio" name="ticket_type" id="chore">
                             <label class="form-check-label" for="chore">
                             Chore
+                            </label>
+                        </div>
+                    </div>
+                                     
+                    <br>
+
+                    <h5>Priority</h5>
+    
+                    <div class="radio-container">
+                        <div class="form-check">
+                            <input class="form-check-input form-priority-low" ${ticket.priority === 'low' ? 'checked' : ''} value="low" type="radio" name="priority" id="low">
+                            <label class="form-check-label" for="low">
+                            Low
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input form-priority-med" ${ticket.priority === 'med' ? 'checked' : ''} value="med" type="radio" name="priority" id="med">
+                            <label class="form-check-label" for="med">
+                            Medium
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input form-priority-high" ${ticket.priority === 'high' ? 'checked' : ''}value="high" type="radio" name="priority" id="high">
+                            <label class="form-check-label" for="high">
+                            High
                             </label>
                         </div>
                     </div>
@@ -159,7 +185,6 @@ class Ticket {
 
                 <br>
                     
-
                 <div class="form-group">
                     <textarea class="form-control" id="description" placeholder="Description" rows="5"></textarea>
                 </div>
@@ -201,6 +226,30 @@ class Ticket {
                         </label>
                     </div>
                 </div>
+                <br>
+
+                <h5>Priority</h5>
+
+                <div class="radio-container">
+                    <div class="form-check">
+                        <input class="form-check-input form-priority-low" value="low" type="radio" name="priority" id="low">
+                        <label class="form-check-label" for="low">
+                        Low
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input form-priority-med" value="med" type="radio" name="priority" id="med">
+                        <label class="form-check-label" for="med">
+                        Medium
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input form-priority-high" value="high" type="radio" name="priority" id="high">
+                        <label class="form-check-label" for="high">
+                        High
+                        </label>
+                    </div>
+                </div>
                 
                 <br>
                 
@@ -230,13 +279,14 @@ class Ticket {
         return Ticket.all.find(ticket => ticket.id === parseInt(id))
     }
 
-    refresh({id, status, title, description, ticket_type, effort}){   // setter
+    refresh({id, status, title, description, ticket_type, effort, priority}){   // setter
             this.id = id
             this.status = status 
             this.title = title
             this.description = description
             this.ticket_type = ticket_type
             this.effort = effort
+            this.priority = priority
     }
 
 

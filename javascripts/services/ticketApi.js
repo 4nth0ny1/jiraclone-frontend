@@ -41,7 +41,8 @@ class TicketApi {
                 description: e.target.querySelector('#description').value, 
                 status: e.target.querySelector('#status').value,
                 ticket_type: e.target.querySelector('input[name="ticket_type"]:checked').value,
-                effort: e.target.querySelector('#effort').value
+                effort: e.target.querySelector('#effort').value,
+                priority: e.target.querySelector('input[name="priority"]:checked').value
             }
         }
         fetch('http://127.0.0.1:3000/tickets', {
@@ -71,7 +72,9 @@ class TicketApi {
                 description: e.target.querySelector('#description').value, 
                 status: e.target.querySelector('#status').value,
                 ticket_type: e.target.querySelector('input[name="ticket_type"]:checked').value,
-                effort: e.target.querySelector('#effort').value
+                effort: e.target.querySelector('#effort').value,
+                priority: e.target.querySelector('input[name="priority"]:checked').value
+
             }
         }
         e.target.querySelector('.btn-create-ticket-button').disabled = true
