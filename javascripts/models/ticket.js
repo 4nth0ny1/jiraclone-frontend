@@ -4,7 +4,7 @@ class Ticket {
 
     static all = []
 
-    constructor({id, status, title, description, ticket_type, effort, priority, formatted_created_at}){
+    constructor({id, status, title, description, ticket_type, effort, priority, formatted_created_at, last_updated_at}){
         this.id = id
         this.status = status 
         this.title = title
@@ -12,7 +12,8 @@ class Ticket {
         this.ticket_type = ticket_type
         this.effort = effort
         this.priority = priority
-        this.formatted_created_at = formatted_created_at
+        this.formattedCreatedAt = formatted_created_at
+        this.lastUpdatedAt = last_updated_at
         Ticket.all.push(this)
     }
 
@@ -159,8 +160,9 @@ class Ticket {
                     </div>
                     
                 </form>
-                <p class="date-created">Date Created: ${ticket.formatted_created_at}</p>
-                
+                <p class="date-created">Date Created: ${ticket.formattedCreatedAt}</p>
+                <p class="last-update">Last Update: ${ticket.lastUpdatedAt}</p>
+
             </div>
             <div class="comments-container">
                 <div class="comments-only">
@@ -199,8 +201,7 @@ class Ticket {
 
                 <h5>Status</h5>
                 <select class="form-select" aria-label="Default select example" id="status">
-                    <option selected>Open this select menu</option>
-                    <option value="unscheduled">Unscheduled</option>
+                    <option selected value="unscheduled">Unscheduled</option>
                     <option value="ready for development">Ready for Development</option>
                     <option value="in development">In Development</option>
                     <option value="ready for review">Ready for Review</option>
@@ -214,7 +215,7 @@ class Ticket {
 
                 <div class="radio-container">
                     <div class="form-check">
-                        <input class="form-check-input form-ticket-type-feature" value="feature" type="radio" name="ticket_type" id="feature">
+                        <input class="form-check-input form-ticket-type-feature" value="feature" type="radio" name="ticket_type" id="feature" checked>
                         <label class="form-check-label" for="feature">
                         Feature
                         </label>
@@ -238,7 +239,7 @@ class Ticket {
 
                 <div class="radio-container">
                     <div class="form-check">
-                        <input class="form-check-input form-priority-low" value="low" type="radio" name="priority" id="low">
+                        <input class="form-check-input form-priority-low" value="low" type="radio" name="priority" id="low" checked>
                         <label class="form-check-label" for="low">
                         Low
                         </label>
@@ -261,8 +262,7 @@ class Ticket {
                 
                 <h5>Effort</h5>
                 <select class="form-select" id="effort" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    <option value="1">1</option>
+                    <option selected value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="5">5</option>
@@ -285,7 +285,7 @@ class Ticket {
         return Ticket.all.find(ticket => ticket.id === parseInt(id))
     }
 
-    refresh({id, status, title, description, ticket_type, effort, priority, formatted_created_at}){   // setter
+    refresh({id, status, title, description, ticket_type, effort, priority, formatted_created_at, last_updated_at}){   // setter
             this.id = id
             this.status = status 
             this.title = title
@@ -293,8 +293,9 @@ class Ticket {
             this.ticket_type = ticket_type
             this.effort = effort
             this.priority = priority
-            this.formatted_created_at = formatted_created_at
-    }
+            this.formattedCreatedAt = formatted_created_at
+            this.lastUpdatedAt = last_updated_at
+        }
 
 
 
