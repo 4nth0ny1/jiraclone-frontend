@@ -4,7 +4,7 @@ class Ticket {
 
     static all = []
 
-    constructor({id, status, title, description, ticket_type, effort, priority}){
+    constructor({id, status, title, description, ticket_type, effort, priority, formatted_created_at}){
         this.id = id
         this.status = status 
         this.title = title
@@ -12,6 +12,7 @@ class Ticket {
         this.ticket_type = ticket_type
         this.effort = effort
         this.priority = priority
+        this.formatted_created_at = formatted_created_at
         Ticket.all.push(this)
     }
 
@@ -57,7 +58,10 @@ class Ticket {
         <div class="modal-container">
             <div class="edit-form-container">
                 <h2 class="edit-title">Edit a Ticket</h2>
+                
                 <span class="icon expand-modal"><i class="fa fa-comments" aria-hidden="true"></i></span>
+
+                
                 <br>
 
                 <form id="edit-ticket-form" data-ticket-id="${ticket.id}">
@@ -153,7 +157,9 @@ class Ticket {
                         <input type="submit" value="Save" class="btn btn-create-ticket-button" id="close-modal-btn" />
                         <input type="button" data-ticket-id=${ticket.id} value="Delete" class="btn btn-create-ticket-button" id="delete-modal-btn" />
                     </div>
+                    
                 </form>
+                <p class="date-created">Date Created: ${ticket.formatted_created_at}</p>
                 
             </div>
             <div class="comments-container">
@@ -279,7 +285,7 @@ class Ticket {
         return Ticket.all.find(ticket => ticket.id === parseInt(id))
     }
 
-    refresh({id, status, title, description, ticket_type, effort, priority}){   // setter
+    refresh({id, status, title, description, ticket_type, effort, priority, formatted_created_at}){   // setter
             this.id = id
             this.status = status 
             this.title = title
@@ -287,6 +293,7 @@ class Ticket {
             this.ticket_type = ticket_type
             this.effort = effort
             this.priority = priority
+            this.formatted_created_at = formatted_created_at
     }
 
 
