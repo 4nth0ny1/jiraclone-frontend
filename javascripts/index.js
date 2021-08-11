@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     toggleBackground()
+    Ticket.alphabetizeByTitle()
 
 })
 
@@ -127,6 +128,9 @@ function initializeDrag(){
       document.body.classList.toggle('white')
     })
   }
+
+
+
 
 
 

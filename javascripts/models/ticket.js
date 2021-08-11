@@ -17,6 +17,14 @@ class Ticket {
         Ticket.all.push(this)
     }
 
+    static alphabetizeByTitle(){
+        const alphaButton = document.querySelector('.alphabetize')
+        alphaButton.
+
+    }
+
+
+
     render(){
         const ticketContainer = document.createElement('div')
         ticketContainer.classList.add('draggable')
