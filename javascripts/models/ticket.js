@@ -18,16 +18,40 @@ class Ticket {
     }
 
     static alphabetizeByTitle(){
-        const alphaButton = document.querySelector('.alphabetize')
-        alphaButton.
-
+        // const array = [10,6,8,7,2,1]
+        // array.sort((a,b) => {
+        //     console.log(`${a}, ${b}`)
+        //         if (a < b){
+        //             return -1
+        //         } else if (a > b) {
+        //             return 1 
+        //         } else {
+        //             return 0
+        //         }
+        // })
+        const unscheduled = document.querySelector('.unscheduled')
+        unscheduled.addEventListener('click', () => {
+            //create array of tickets with status unscheduled and then sort by title 
+            const sortedTickets = Ticket.all.filter(ticket => ticket.status === 'unscheduled').sort((prevEle,nextEle) => { 
+                // console.log(`${prevEle.title}, ${nextEle.title}`)
+                if (prevEle.title < nextEle.title){
+                    return -1
+                } else if (prevEle.title > nextEle.title) {
+                    return 1 
+                } else {
+                    return 0
+                }
+             })
+            const cardTickets = document.querySelectorAll('.unscheduled .ticket-card')  //looks for children of that particular container
+            cardTickets.forEach(cardTicket => cardTicket.remove()) // we need to remove the tickets in order to reorder them.  
+            sortedTickets.forEach(sortedTicket => sortedTicket.render()) //render the tickets in sorted form.
+        }) 
     }
-
-
 
     render(){
         const ticketContainer = document.createElement('div')
         ticketContainer.classList.add('draggable')
+        ticketContainer.classList.add('ticket-card')  // added class for sort function
         ticketContainer.setAttribute('draggable', 'true')
         ticketContainer.id = `ticket-${this.id}`
         ticketContainer.dataset.status = `${this.status}`

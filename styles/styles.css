@@ -147,21 +147,6 @@ body {
   border-left: 10px solid #136bf0 !important;
 }
 
-/* .form-feature {
-  background: #bd5242 !important;
-  border-color: #bd5242 !important;
-}
-
-.form-bug {
-  background: #498646 !important;
-  border-color: #498646 !important;
-}
-
-.form-chore {
-  background: #136bf0 !important;
-  border-color: #136bf0 !important;
-} */
-
 .form-ticket-type-feature:checked {
   background: #bd5242 !important;
   border-color: #bd5242 !important;
@@ -201,14 +186,16 @@ body {
 
 .btn-create-ticket-button,
 .btn-create-comment-button,
-.jira-btn {
+.jira-btn,
+.alphabetize {
   background: var(--button-background-color) !important;
   color: var(--text-color-white) !important;
 }
 
 .btn-create-ticket-button:hover,
 .btn-create-comment-button:hover,
-.jira-btn:hover {
+.jira-btn:hover,
+.alphabetize:hover {
   background: var(--button-background-hover-color) !important;
   color: var(--text-color-white) !important;
 }
@@ -338,4 +325,13 @@ ul {
 
 .comment {
   margin-bottom: 10px;
+}
+
+.alphabetize {
+  padding: 10px;
+  width: 100px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
 }
