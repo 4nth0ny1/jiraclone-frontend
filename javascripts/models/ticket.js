@@ -70,7 +70,9 @@ class Ticket {
         `
 
         const statusClass = formatToClass(this.status)
+        
         const statusContainer = document.querySelector(`.${statusClass}`)
+        
         statusContainer.append(ticketContainer)
         const card = ticketContainer.querySelector('.card')
         card.addEventListener('click', Ticket.addEditTicketForm)
